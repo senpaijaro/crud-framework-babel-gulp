@@ -17,7 +17,7 @@ const controllers = './app/views/components/**/**.js'
 const templates = './app/views/components/**/**.htm'
 const template = './app/views/templates.js'
 /**
-	top level functions
+	top level function
 	gulp.task - define task
 	gulp.src - point to files to use
 	gulp.dest  - point tofolder to ouput
