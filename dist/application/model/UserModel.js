@@ -46,6 +46,7 @@ var UserModel = function (_Model) {
 
 		var _this = (0, _possibleConstructorReturn3.default)(this, (UserModel.__proto__ || (0, _getPrototypeOf2.default)(UserModel)).call(this));
 
+		_this.conn = 'default';
 		_this.table = 'tbluser';
 		_this.mainBrCode = 'srsn';
 		_this.mainMsBrCode = 'srsnms';
@@ -63,7 +64,7 @@ var UserModel = function (_Model) {
 							case 0:
 								field = 'tfname,tlname';
 								_context.next = 3;
-								return this.select(this.mainBrCode, this.table, field);
+								return this.select(this.conn, this.table, field);
 
 							case 3:
 								res = _context.sent;
@@ -97,7 +98,7 @@ var UserModel = function (_Model) {
 									tlname: 'Batal'
 								};
 								_context2.next = 3;
-								return this.insert(this.mainBrCode, this.table, data);
+								return this.insert(this.conn, this.table, data);
 
 							case 3:
 								res = _context2.sent;
@@ -134,7 +135,7 @@ var UserModel = function (_Model) {
 									id: 1
 								};
 								_context3.next = 4;
-								return this.update(this.mainBrCode, this.table, condition, data);
+								return this.update(this.conn, this.table, condition, data);
 
 							case 4:
 								res = _context3.sent;

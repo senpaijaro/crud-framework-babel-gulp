@@ -49,29 +49,36 @@ var Database = function () {
 						switch (_context.prev = _context.next) {
 							case 0:
 								if (!(db != null)) {
-									_context.next = 12;
+									_context.next = 15;
 									break;
 								}
 
 								_context.t0 = db;
-								_context.next = _context.t0 === 'srsn' ? 4 : _context.t0 === 'srsnms' ? 8 : 12;
+								_context.next = _context.t0 === 'default' ? 4 : _context.t0 === 'srsn' ? 7 : _context.t0 === 'srsnms' ? 11 : 15;
 								break;
 
 							case 4:
 								_context.next = 6;
-								return this.mysqlExecute("localhost", "root", "password!@#$", "test");
+								return this.mysqlExecute("localhost", "root", "password!@#$", 'test');
 
 							case 6:
 								return _context.abrupt('return', _context.sent);
 
-							case 8:
-								_context.next = 10;
-								return this.mssqlExecute("192.168.0.148", "markuser", "tseug", "NOVA_JADE");
+							case 7:
+								_context.next = 9;
+								return this.mysqlExecute("localhost", "root", "password!@#$", "test");
 
-							case 10:
+							case 9:
 								return _context.abrupt('return', _context.sent);
 
-							case 12:
+							case 11:
+								_context.next = 13;
+								return this.mssqlExecute("192.168.0.148", "markuser", "tseug", "NOVA_JADE");
+
+							case 13:
+								return _context.abrupt('return', _context.sent);
+
+							case 15:
 							case 'end':
 								return _context.stop();
 						}

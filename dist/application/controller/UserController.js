@@ -70,7 +70,7 @@ var UserController = function (_Controller) {
 									title: 'Basic babel framework'
 								};
 								_context.next = 7;
-								return this.view(res, 'index.html', data);
+								return this.view(res, 'index.htm', data);
 
 							case 7:
 							case 'end':
@@ -85,43 +85,6 @@ var UserController = function (_Controller) {
 			}
 
 			return listAllUser;
-		}()
-	}, {
-		key: 'listDataUser',
-		value: function () {
-			var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2(req, res) {
-				var user, data, result;
-				return _regenerator2.default.wrap(function _callee2$(_context2) {
-					while (1) {
-						switch (_context2.prev = _context2.next) {
-							case 0:
-								user = {
-									fname: 'jade',
-									lname: 'batal'
-								};
-								data = {
-									title: 'basic framework'
-								};
-								result = {
-									result: user,
-									data: data
-								};
-								_context2.next = 5;
-								return this.send(res, result);
-
-							case 5:
-							case 'end':
-								return _context2.stop();
-						}
-					}
-				}, _callee2, this);
-			}));
-
-			function listDataUser(_x3, _x4) {
-				return _ref2.apply(this, arguments);
-			}
-
-			return listDataUser;
 		}()
 	}]);
 	return UserController;

@@ -20,25 +20,36 @@ var _expressValidator = require('C:\\node_file\\crud-framework-babel\\node_modul
 
 var _expressValidator2 = _interopRequireDefault(_expressValidator);
 
-var _routes = require('C:\\node_file\\crud-framework-babel\\dist\\application\\config\\routes');
+var _path = require('C:\\node_file\\crud-framework-babel\\node_modules\\path');
+
+var _path2 = _interopRequireDefault(_path);
+
+var _routes = require('./application/config/routes');
 
 var _routes2 = _interopRequireDefault(_routes);
 
-var _policies = require('C:\\node_file\\crud-framework-babel\\dist\\application\\config\\policies');
+var _policies = require('./application/config/policies');
 
 var _policies2 = _interopRequireDefault(_policies);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //files
-var app = (0, _express2.default)();
-//modules  
 
-app.set('views', 'public/template');
-app.use('/public', _express2.default.static('public/plugins'));
-app.use('/partials', _express2.default.static('public/template/includes')), app.use('/view', _express2.default.static('public/template'));
+//modules  
+var app = (0, _express2.default)(),
+    static_dir = __dirname + '/node_modules/',
+    node_plugins = static_dir.replace('dist/', ''),
+    dist = static_dir.replace('/node_modules/', '');
+app.set('views', _path2.default.join(__dirname, '/views/'));
+app.use('/assets', _express2.default.static(node_plugins));
+app.use('/dist', _express2.default.static(dist));
+
+console.log(node_plugins);
+// app.use('/view', express.static('public/template'))
 app.use((0, _expressValidator2.default)());
-app.engine('html', require('ejs').renderFile);
+app.engine('htm', require('ejs').renderFile);
+app.set('view engine', 'htm');
 
 var controllers = (0, _require2.default)({
 	dir: './application/controller', //only files that end with 'controller.js' 

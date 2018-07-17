@@ -5,8 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var routes = {
 	//method / url : Controller/Function
-	'GET /basic_framework': 'User.listAllUser',
-	'GET /listDataUser': 'User.listDataUser'
+	'GET /basic_framework': 'User.listAllUser'
 };
 
 exports.default = routes;

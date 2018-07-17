@@ -1,7 +1,6 @@
 const routes = {
 	//method / url : Controller/Function
-	'GET /basic_framework' : 'User.listAllUser',
-	'GET /listDataUser' : 'User.listDataUser'
+	'GET /basic_framework' : 'User.listAllUser'
 }
 
 export default routes

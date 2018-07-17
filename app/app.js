@@ -6,17 +6,24 @@ import requireAll from 'require.all'
 import {compose} from 'compose-middleware'
 import _ from 'underscore'
 import validition from 'express-validator'
+import path from 'path'
 //files
-import routes from 'application/config/routes'
-import policy from 'application/config/policies'
+import routes from './application/config/routes'
+import policy from './application/config/policies'
 
-const app = express()
-app.set('views', 'public/template')
-app.use('/public', express.static('public/plugins'))
-app.use('/partials', express.static('public/template/includes')),
-app.use('/view', express.static('public/template'))
+const app = express(),
+static_dir = __dirname+'/node_modules/',
+node_plugins = static_dir.replace('dist/',''),
+dist = static_dir.replace('/node_modules/','')
+app.set('views',  path.join(__dirname, '/views/'))
+app.use('/assets', express.static(node_plugins))
+app.use('/dist', express.static(dist))
+
+console.log(node_plugins)
+// app.use('/view', express.static('public/template'))
 app.use(validition())
-app.engine('html', require('ejs').renderFile)
+app.engine('htm', require('ejs').renderFile)
+app.set('view engine', 'htm')
 
 let controllers = requireAll({
 	dir: './application/controller', //only files that end with 'controller.js' 
