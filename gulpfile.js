@@ -23,7 +23,6 @@ const template = './app/views/templates.js'
 	gulp.dest  - point tofolder to ouput
 	gulp.watch - watch files and folders for changes
 */
-
 const babelplug = {
     "presets": ["es2015", "stage-2"],
     "plugins": ["transform-runtime", "transform-async-to-generator"]
@@ -122,7 +121,7 @@ gulp.task('watch', function() {
     gulp.watch('app/*js', ['babel','controller','model','config','policies','system']);
 });
 
-gulp.task('default', ['babel','controller','model','config','policies','system','template', 'iife','index'], function() {
+gulp.task('default', ['babel','controller','model','config','policies','system','template', 'iife','index','minify'], function() {
   return runSequence(['watch', 'start']);
 });
 
